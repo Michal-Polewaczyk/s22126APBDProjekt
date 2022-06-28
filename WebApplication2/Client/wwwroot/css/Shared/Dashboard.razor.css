@@ -1,0 +1,21 @@
+﻿body {
+}
+
+.dashboard-wrapper-div {
+    display: flex;
+    align-content: center;
+}
+
+    .dashboard-wrapper-div > .logout-button {
+        background-color: blue;
+    }
+
+    .dashboard-wrapper-div > ul {
+        display: flex;
+        align-content: center;
+    }
+
+
+.dashboard-tab {
+    background-color: red
+}

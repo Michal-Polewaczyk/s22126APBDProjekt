@@ -1,0 +1,334 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Server\\WebApplication2.Server.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Client\\WebApplication2.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Client\\WebApplication2.Client.csproj",
+        "projectName": "WebApplication2.Client",
+        "projectPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Client\\WebApplication2.Client.csproj",
+        "packagesPath": "C:\\Users\\Mich\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mich\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj": {
+                "projectPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Syncfusion.Blazor.Core": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            },
+            "Syncfusion.Blazor.DropDowns": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            },
+            "Syncfusion.Blazor.Themes": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            },
+            "Syncfusion.Xamarin.DataSource": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            },
+            "Syncfusion.Xamarin.SfAutoComplete": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
+              "version": "[5.0.16, 5.0.16]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Server\\WebApplication2.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Server\\WebApplication2.Server.csproj",
+        "projectName": "WebApplication2.Server",
+        "projectPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Server\\WebApplication2.Server.csproj",
+        "packagesPath": "C:\\Users\\Mich\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Server\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mich\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Client\\WebApplication2.Client.csproj": {
+                "projectPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Client\\WebApplication2.Client.csproj"
+              },
+              "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj": {
+                "projectPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.AspNetCore.ApiAuthorization.IdentityServer": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Syncfusion.Blazor.Core": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            },
+            "Syncfusion.Blazor.DropDowns": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            },
+            "Syncfusion.Blazor.Themes": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            },
+            "Syncfusion.Xamarin.DataSource": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            },
+            "Syncfusion.Xamarin.SfAutoComplete": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj",
+        "projectName": "WebApplication2.Shared",
+        "projectPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj",
+        "packagesPath": "C:\\Users\\Mich\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mich\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Syncfusion.Blazor.Core": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            },
+            "Syncfusion.Blazor.DropDowns": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            },
+            "Syncfusion.Blazor.Themes": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            },
+            "Syncfusion.Xamarin.DataSource": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            },
+            "Syncfusion.Xamarin.SfAutoComplete": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

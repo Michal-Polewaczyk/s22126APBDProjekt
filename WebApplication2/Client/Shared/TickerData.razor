@@ -1,0 +1,23 @@
+﻿<h3>TickerData</h3>
+
+<TickerSummary TickerDetails="TickerDetails"/>
+
+
+
+
+
+
+
+
+
+@code {
+
+    [Parameter]
+    public TickerSimpleDTO TickerDetails { get; set; }
+    [Parameter]
+    public DailyOpenCloseDTO DailyOpenClose { get; set; }
+    [Parameter]
+    public TickerPricesDTO TickerPrices { get; set; }
+    [Parameter]
+    public TickerNewsDTO[] TickerNews { get; set; }
+}

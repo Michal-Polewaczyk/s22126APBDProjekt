@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\Dashboard.razor.css" />
+    <Content Remove="wwwroot\css\MainLayout.razor.css" />
+    <Content Remove="wwwroot\css\NavMenu.razor.css" />
+    <Content Remove="wwwroot\css\Shared\Dashboard.razor.css" />
+    <Content Remove="wwwroot\css\Shared\MainLayout.razor.css" />
+    <Content Remove="wwwroot\css\Shared\NavMenu.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\css\Dashboard.razor.css" />
+    <EmbeddedResource Include="wwwroot\css\MainLayout.razor.css" />
+    <EmbeddedResource Include="wwwroot\css\NavMenu.razor.css" />
+    <EmbeddedResource Include="wwwroot\css\Shared\Dashboard.razor.css" />
+    <EmbeddedResource Include="wwwroot\css\Shared\MainLayout.razor.css" />
+    <EmbeddedResource Include="wwwroot\css\Shared\NavMenu.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.16" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.16" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="5.0.16" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+    <PackageReference Include="Syncfusion.Blazor.Core" Version="20.1.0.61" />
+    <PackageReference Include="Syncfusion.Blazor.DropDowns" Version="20.1.0.61" />
+    <PackageReference Include="Syncfusion.Blazor.Themes" Version="20.1.0.61" />
+    <PackageReference Include="Syncfusion.Xamarin.DataSource" Version="20.1.0.61" />
+    <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete" Version="20.1.0.61" />
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\WebApplication2.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

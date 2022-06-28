@@ -1,0 +1,50 @@
+﻿
+<div class="summary">
+
+    <img class="ticker-logo" src="@TickerDetails.IconUrl" alt="Loading">
+    <div class="informations">
+        <div class="company-name"><p>Name: @TickerDetails.Name </p><p> Code: (@TickerDetails.Shortcode)</p></div>
+        <div>
+            <p>Country Code: @TickerDetails.CountryCode</p>
+            <p>Market: @TickerDetails.Market</p>
+        </div>
+        <button class="add-to-fav"></button>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public TickerSimpleDTO TickerDetails { get; set; }
+}
+
+<style>
+    .ticker-logo {
+        display: inline-block;
+        height: 70%;
+        width: 20%;
+    }
+
+    .summary {
+        display:inline-flex;
+        color:cornflowerblue;
+    }
+
+    .informations {
+        display:flex;
+        flex-direction:column;
+    }
+
+    .company-name {
+        font-size: 1.5rem;
+    }
+
+    .company-name p {
+        padding: 10px;
+        display: inline-block;
+    }
+
+    .add-to-fav {
+
+    }
+
+</style>
