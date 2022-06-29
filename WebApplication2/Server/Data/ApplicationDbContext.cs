@@ -25,6 +25,7 @@ namespace WebApplication2.Server.Data
         public virtual DbSet<DailyOpenClose> DailyOpenCloses { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Price> Prices { get; set; }
+        public virtual DbSet<ApplicationUserTicker> ApplicationUserTickers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -35,6 +36,7 @@ namespace WebApplication2.Server.Data
             builder.ApplyConfiguration(new PriceEntityTypeConfiguration());
             builder.ApplyConfiguration(new TickerEntityTypeConfiguration());
             builder.ApplyConfiguration(new NewsOpenCloseEntityTypeConfiguration());
+            builder.ApplyConfiguration(new ApplicationUserTickerEntityTypeConfiguration());
         }
 
     }

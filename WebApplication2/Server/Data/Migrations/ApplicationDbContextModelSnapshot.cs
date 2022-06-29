@@ -19,21 +19,6 @@ namespace WebApplication2.Server.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ApplicationUserTicker", b =>
-                {
-                    b.Property<int>("WatchedTickersIdTicker")
-                        .HasColumnType("int");
-
-                    b.Property<string>("WatchersNavigationId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("WatchedTickersIdTicker", "WatchersNavigationId");
-
-                    b.HasIndex("WatchersNavigationId");
-
-                    b.ToTable("ApplicationUserTicker");
-                });
-
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>
                 {
                     b.Property<string>("UserCode")
@@ -378,6 +363,21 @@ namespace WebApplication2.Server.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("WebApplication2.Server.Models.ApplicationUserTicker", b =>
+                {
+                    b.Property<int>("IdTicker")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IdApplicationUser")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("IdTicker", "IdApplicationUser");
+
+                    b.HasIndex("IdApplicationUser");
+
+                    b.ToTable("ApplicationUserTickers");
+                });
+
             modelBuilder.Entity("WebApplication2.Server.Models.DailyOpenClose", b =>
                 {
                     b.Property<int>("IdDailyOpenClose")
@@ -496,37 +496,22 @@ namespace WebApplication2.Server.Data.Migrations
 
                     b.Property<string>("Market")
                         .IsRequired()
-                        .HasMaxLength(140)
-                        .HasColumnType("nvarchar(140)");
+                        .HasMaxLength(170)
+                        .HasColumnType("nvarchar(170)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(140)
-                        .HasColumnType("nvarchar(140)");
+                        .HasMaxLength(170)
+                        .HasColumnType("nvarchar(170)");
 
                     b.Property<string>("ShortCode")
                         .IsRequired()
-                        .HasMaxLength(4)
-                        .HasColumnType("nvarchar(4)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("IdTicker");
 
                     b.ToTable("Tickers");
-                });
-
-            modelBuilder.Entity("ApplicationUserTicker", b =>
-                {
-                    b.HasOne("WebApplication2.Server.Models.Ticker", null)
-                        .WithMany()
-                        .HasForeignKey("WatchedTickersIdTicker")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebApplication2.Server.Models.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("WatchersNavigationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -591,6 +576,25 @@ namespace WebApplication2.Server.Data.Migrations
                     b.Navigation("IdPriceNavigation");
                 });
 
+            modelBuilder.Entity("WebApplication2.Server.Models.ApplicationUserTicker", b =>
+                {
+                    b.HasOne("WebApplication2.Server.Models.ApplicationUser", "ApplicationUserNavigation")
+                        .WithMany("WatchedTickers")
+                        .HasForeignKey("IdApplicationUser")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("WebApplication2.Server.Models.Ticker", "TickerNavigation")
+                        .WithMany("WatchersNavigation")
+                        .HasForeignKey("IdTicker")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUserNavigation");
+
+                    b.Navigation("TickerNavigation");
+                });
+
             modelBuilder.Entity("WebApplication2.Server.Models.DailyOpenClose", b =>
                 {
                     b.HasOne("WebApplication2.Server.Models.Ticker", "IdTickerNavigation")
@@ -624,6 +628,11 @@ namespace WebApplication2.Server.Data.Migrations
                     b.Navigation("IdTickerNavigation");
                 });
 
+            modelBuilder.Entity("WebApplication2.Server.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("WatchedTickers");
+                });
+
             modelBuilder.Entity("WebApplication2.Server.Models.Price", b =>
                 {
                     b.Navigation("AggregateResultsNavigation");
@@ -636,6 +645,8 @@ namespace WebApplication2.Server.Data.Migrations
                     b.Navigation("NewsNavigation");
 
                     b.Navigation("PricesNavigation");
+
+                    b.Navigation("WatchersNavigation");
                 });
 #pragma warning restore 612, 618
         }

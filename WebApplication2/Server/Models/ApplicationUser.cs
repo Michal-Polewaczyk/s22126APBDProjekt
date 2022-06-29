@@ -8,6 +8,6 @@ namespace WebApplication2.Server.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public ICollection<Ticker> WatchedTickers { get; set; }
+        public ICollection<ApplicationUserTicker> WatchedTickers { get; set; }
     }
 }

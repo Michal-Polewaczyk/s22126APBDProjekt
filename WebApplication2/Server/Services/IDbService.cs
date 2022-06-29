@@ -15,6 +15,8 @@ public interface IDbService
     public Task AddLatestNewsAboutTicker(News news, string tickername);
     public Task AddTickerPrices(Price tickerPrizes, string tickername);
     public Task<IEnumerable<TickerDetailsDTO>> GetAllTickersMatchingToString(string matcher);
+    public Task<bool> AddTickerToUserWatchlist(string UserEmail, string TickerName);
+    public Task<IEnumerable<TickerSimpleDTO>> GetTickersFromUsersWatchlist(string UserEmail);
 
 }
 

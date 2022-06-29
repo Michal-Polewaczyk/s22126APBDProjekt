@@ -14,9 +14,9 @@ namespace WebApplication2.Server.Config
         {
             builder.HasKey(t => t.IdTicker);
             builder.Property(t => t.IdTicker).ValueGeneratedOnAdd();//.UseIdentityColumn(1000, 1);
-            builder.Property(t => t.Name).HasMaxLength(140).IsRequired();
-            builder.Property(t => t.Market).HasMaxLength(140).IsRequired();
-            builder.Property(t => t.ShortCode).HasMaxLength(4).IsRequired();
+            builder.Property(t => t.Name).HasMaxLength(170).IsRequired();
+            builder.Property(t => t.Market).HasMaxLength(170).IsRequired();
+            builder.Property(t => t.ShortCode).HasMaxLength(30).IsRequired();
             builder.Property(t => t.IconUrl);
 
             builder.HasMany(t => t.PricesNavigation)
@@ -35,7 +35,9 @@ namespace WebApplication2.Server.Config
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasMany(t => t.WatchersNavigation)
-                .WithMany(w => w.WatchedTickers);
+                .WithOne(at => at.TickerNavigation)
+                .HasForeignKey(at => at.IdTicker)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

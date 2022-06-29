@@ -15,7 +15,7 @@ namespace WebApplication2.Server.Models
         public string? IconUrl { get; set; }
         public virtual ICollection<News> NewsNavigation { get; set; }
         public virtual ICollection<Price> PricesNavigation { get; set; }
-        public virtual ICollection<ApplicationUser> WatchersNavigation { get; set; }
+        public virtual ICollection<ApplicationUserTicker> WatchersNavigation { get; set; }
         public virtual ICollection<DailyOpenClose> DailyOpenCloses { get; set; }
     }
 }

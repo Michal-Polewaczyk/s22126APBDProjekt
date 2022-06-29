@@ -1,49 +1,102 @@
 ﻿@inject HttpClient Http
 @using Syncfusion.Blazor.DropDowns
 @using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.Grids
 @inject NavigationManager Navigator
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
 <div class="dashboard-wrapper-div">
     <div class="upper-panel">
         <h1>Dashboard</h1>
     </div>
-    <div class="searcher-tab">
 
-        <div class="searcher-tab__autocomplete">
-            <label>Company symbol</label>
-            <SfAutoComplete TValue="string" TItem="TickerDetailsDTO" Query="@Query" PopupHeight="auto" PopupWidth="700px" @oninput="InputChangeHandler">
-                <AutoCompleteEvents TValue="string" TItem="TickerDetailsDTO" ValueChange="ValueChangeHandler"></AutoCompleteEvents>
-                <AutoCompleteFieldSettings Value="ShortCode" />
-                <SfDataManager Url=@GetUrlToSendRequestTo()
-                               Adaptor="Syncfusion.Blazor.Adaptors.WebApiAdaptor" CrossDomain=true></SfDataManager>
-                <AutoCompleteTemplates TItem="TickerDetailsDTO">
-                    <ItemTemplate>
-                        <span><span>@((context as TickerDetailsDTO).Name)</span><span>@((context as TickerDetailsDTO).CountryCode)</span></span>
-                    </ItemTemplate>
-                </AutoCompleteTemplates>
-            </SfAutoComplete>
-        </div>
-        <button @onclick="@SearchHandler">SEARCH</button>
-        <button>WATCHLIST</button>
-    </div>
-    @if (TickerDetails == null || TickerPrices == null || DailyOpenClose == null)
+    @if (!WatchlistVisible)
     {
 
-        <p>Loading data</p>
+
+        <div class="searcher-tab">
+            <div class="searcher-tab__autocomplete">
+                <label>Company symbol</label>
+
+                @if (ErrorOccured)
+                {
+                    <p class="not-found">Ticker not found!</p>
+                }
+                <SfAutoComplete TValue="string" TItem="TickerDetailsDTO" Query="@Query" PopupHeight="auto" PopupWidth="700px" @oninput="InputChangeHandler">
+                    <AutoCompleteEvents TValue="string" TItem="TickerDetailsDTO" ValueChange="ValueChangeHandler"></AutoCompleteEvents>
+                    <AutoCompleteFieldSettings Value="ShortCode" />
+                    <SfDataManager Url=@GetUrlToSendRequestTo()
+                                   Adaptor="Syncfusion.Blazor.Adaptors.WebApiAdaptor" CrossDomain=true></SfDataManager>
+                    <AutoCompleteTemplates TItem="TickerDetailsDTO">
+                        <ItemTemplate>
+                            <span><span>@((context as TickerDetailsDTO).Name)</span><span>@((context as TickerDetailsDTO).CountryCode)</span></span>
+                        </ItemTemplate>
+                    </AutoCompleteTemplates>
+                </SfAutoComplete>
+            </div>
+            <button @onclick="@SearchHandler">SEARCH</button>
+            <button @onclick="@WatchlistButtonClickHandler">WATCHLIST</button>
+        </div>
+        @if (TickerDetails == null || TickerPrices == null || DailyOpenClose == null || TickerNews == null)
+        {
+
+            <p>Loading data</p>
+        }
+        else
+        {
+            <TickerData TickerDetails="TickerDetails" TickerNews="TickerNews" TickerPrices="TickerPrices" DailyOpenClose="DailyOpenClose" />
+        }
     }
     else
     {
-        <TickerData TickerDetails="TickerDetails" TickerNews="TickerNews" TickerPrices="TickerPrices" DailyOpenClose="DailyOpenClose" />
+        <button @onclick="@CloseWatchlistHandler">Close Watchlist</button>
+        <SfGrid TValue="TickerSimpleDTO" DataSource="@Watchlist" AllowPaging="true">
+            <GridPageSettings PageSize="5"></GridPageSettings>
+            <GridColumns>
+                <GridColumn TextAlign="TextAlign.Center"
+                            HeaderText="Logo">
+                    <Template>
+                        @{ 
+                            var ticker = (context as TickerSimpleDTO);
+                            <img class="ticker-logo-watchlist" src="@ticker.IconUrl" alt="Loading">
+                        }
+                       
+                    </Template>
+                </GridColumn>
+                <GridColumn Field=@nameof(TickerSimpleDTO.Name)
+                            TextAlign="TextAlign.Center"
+                            HeaderText="Name">
+                </GridColumn>
+                <GridColumn Field=@nameof(TickerSimpleDTO.Shortcode)
+                            TextAlign="TextAlign.Center"
+                            HeaderText="Short code">
+                </GridColumn>
+                <GridColumn Field=@nameof(TickerSimpleDTO.Market)
+                            TextAlign="TextAlign.Center"
+                            HeaderText="Market">
+                </GridColumn>
+                <GridColumn Field=@nameof(TickerSimpleDTO.CountryCode)
+                            TextAlign="TextAlign.Center"
+                            HeaderText="Country Code">
+                </GridColumn>
+            </GridColumns>
+        </SfGrid>
     }
+
+
 </div>
 
 @code {
     private string TickerValue { get; set; } = "";
+    private bool WatchlistVisible { get; set; } = false;
+    private bool ErrorOccured { get; set; } = false;
+    private string WatchlistUrl { get; set; }
 
     private TickerSimpleDTO TickerDetails;
     private DailyOpenCloseDTO DailyOpenClose;
     private TickerPricesDTO TickerPrices;
     private TickerNewsDTO[] TickerNews;
+    private TickerSimpleDTO[] Watchlist;
     private CommonDateNotationConverter _converter = new CommonDateNotationConverter();
 
     public Query Query = new Query(); // new Query().Where("match", "equal", TickerValue).RequiresCount();
@@ -52,19 +105,28 @@
     private string GetUrlToSendRequestTo()
     {
         return Navigator.BaseUri + "Tickers";
-
     }
 
     private void InputChangeHandler(ChangeEventArgs args)
     {
         Query = new Query().AddParams("match", args.Value);
         TickerValue = args.Value.ToString();
+        ErrorOccured = false;
     }
 
     private void ValueChangeHandler(ChangeEventArgs<string, TickerDetailsDTO> args)
     {
         TickerValue = args.Value;
+        ErrorOccured = false;
+    }
 
+    private async Task WatchlistButtonClickHandler()
+    {
+        WatchlistVisible = !WatchlistVisible;
+        if(WatchlistVisible)
+        {
+            Watchlist = await Http.GetFromJsonAsync<TickerSimpleDTO[]>(WatchlistUrl);
+            }
     }
 
     private async Task SearchHandler()
@@ -72,17 +134,37 @@
         string threeMonthsAgo = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddMonths(-3));
         string yesterdaysDateFormatted = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddDays(-1));
 
-        TickerDetails = await Http.GetFromJsonAsync<TickerSimpleDTO>($"Stocks/{TickerValue}");
-        if (TickerDetails != null && TickerDetails.Shortcode.Equals(TickerValue))
+        try
         {
-            DailyOpenClose = await Http.GetFromJsonAsync<DailyOpenCloseDTO>($"Stocks/{TickerValue}/{yesterdaysDateFormatted}");
-            TickerPrices = await Http.GetFromJsonAsync<TickerPricesDTO>($"Stocks/{TickerValue}/Prizes/{threeMonthsAgo}");
-            TickerNews = await Http.GetFromJsonAsync<TickerNewsDTO[]>($"Stocks/{TickerValue}/News/5");
+            TickerDetails = await Http.GetFromJsonAsync<TickerSimpleDTO>($"Stocks/{TickerValue}");
+            if (TickerDetails != null && TickerDetails.Shortcode.Equals(TickerValue))
+            {
+                DailyOpenClose = await Http.GetFromJsonAsync<DailyOpenCloseDTO>($"Stocks/{TickerValue}/{yesterdaysDateFormatted}");
+                TickerPrices = await Http.GetFromJsonAsync<TickerPricesDTO>($"Stocks/{TickerValue}/Prizes/{threeMonthsAgo}");
+                TickerNews = await Http.GetFromJsonAsync<TickerNewsDTO[]>($"Stocks/{TickerValue}/News/5");
+            }
         }
-
+        catch (Exception e)
+        {
+            ErrorOccured = true;
+        }
     }
 
+    private void CloseWatchlistHandler()
+    {
+        WatchlistVisible = false;
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var email = authState.User.Identity.Name;
+        var url = $"ApplicationUsers/{email}/Watchlist";
+        await Http.PostAsJsonAsync<TickerSimpleDTO>(Navigator.BaseUri + url, null);
+        WatchlistUrl = url;
+    }
 }
+
 }
 
 
@@ -92,6 +174,10 @@
         gap: 5%;
         padding: 20px;
         width: 100%;
+    }
+
+    .not-found {
+        color: red;
     }
 
     .logged-user {
@@ -111,6 +197,11 @@
         width: 7%;
         border-radius: 3px;
         font: bolder;
+    }
+
+    .ticker-logo-watchlist {
+        width: 50px;
+        height: 50px
     }
 
     .dashboard-wrapper-div {

@@ -45,6 +45,28 @@ public class SqlServerDbImpl : IDbService
         await _context.SaveChangesAsync();
     }
 
+    public async Task<bool> AddTickerToUserWatchlist(string UserEmail, string TickerName)
+    {
+        try
+        {
+            ApplicationUser user = await _context.Users.Where(u => u.Email.Equals(UserEmail)).SingleAsync();
+            Ticker ticker = await _context.Tickers.Where(t => t.ShortCode.Equals(TickerName)).FirstAsync();
+
+            ApplicationUserTicker applicationUserTicker = new ApplicationUserTicker
+            {
+                IdTicker = ticker.IdTicker,
+                IdApplicationUser = user.Id
+
+            };
+            await _context.ApplicationUserTickers.AddAsync(applicationUserTicker);
+            await _context.SaveChangesAsync();
+            return true;
+        } catch(Exception e)
+        {
+            return false;
+        }
+    }
+
     public async Task<IEnumerable<TickerDetailsDTO>> GetAllTickersMatchingToString(string matcher)
     {
         IEnumerable<TickerDetailsDTO> matchingRecords = await _context.Tickers.Where(t => t.Name.Contains(matcher) || t.ShortCode.Contains(matcher)).Select(t => _mapper.Map<Ticker,TickerDetailsDTO>(t)).ToListAsync();
@@ -83,6 +105,18 @@ public class SqlServerDbImpl : IDbService
             .Include(d => d.AggregateResultsNavigation)
             .FirstOrDefaultAsync();
         return price;
+    }
+
+    public async Task<IEnumerable<TickerSimpleDTO>> GetTickersFromUsersWatchlist(string UserEmail)
+    {
+        IEnumerable<TickerSimpleDTO> tickers = _context.ApplicationUserTickers
+            .Include(at => at.ApplicationUserNavigation)
+            .Where(at => at.ApplicationUserNavigation.Email.Equals(UserEmail))
+            .Include(at => at.TickerNavigation)
+            .Select(at => at.TickerNavigation)
+            .Select(at => _mapper.Map<Ticker, TickerSimpleDTO>(at));
+
+        return tickers;
     }
 }
 

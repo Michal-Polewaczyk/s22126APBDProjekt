@@ -13,7 +13,10 @@ namespace WebApplication2.Server.Config
         public void Configure(EntityTypeBuilder<ApplicationUser> builder)
         {
             builder.HasMany(u => u.WatchedTickers)
-                .WithMany(t => t.WatchersNavigation);
+                .WithOne(t => t.ApplicationUserNavigation)
+                .HasForeignKey(u => u.IdApplicationUser)
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

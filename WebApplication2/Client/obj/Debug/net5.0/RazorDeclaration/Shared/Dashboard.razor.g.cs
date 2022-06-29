@@ -110,6 +110,13 @@ using Syncfusion.Blazor.Data;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\Dashboard.razor"
+using Syncfusion.Blazor.Grids;
+
+#line default
+#line hidden
+#nullable disable
     public partial class Dashboard : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -118,14 +125,18 @@ using Syncfusion.Blazor.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 40 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\Dashboard.razor"
+#line 89 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\Dashboard.razor"
        
     private string TickerValue { get; set; } = "";
+    private bool WatchlistVisible { get; set; } = false;
+    private bool ErrorOccured { get; set; } = false;
+    private string WatchlistUrl { get; set; }
 
     private TickerSimpleDTO TickerDetails;
     private DailyOpenCloseDTO DailyOpenClose;
     private TickerPricesDTO TickerPrices;
     private TickerNewsDTO[] TickerNews;
+    private TickerSimpleDTO[] Watchlist;
     private CommonDateNotationConverter _converter = new CommonDateNotationConverter();
 
     public Query Query = new Query(); // new Query().Where("match", "equal", TickerValue).RequiresCount();
@@ -134,19 +145,28 @@ using Syncfusion.Blazor.Data;
     private string GetUrlToSendRequestTo()
     {
         return Navigator.BaseUri + "Tickers";
-
     }
 
     private void InputChangeHandler(ChangeEventArgs args)
     {
         Query = new Query().AddParams("match", args.Value);
         TickerValue = args.Value.ToString();
+        ErrorOccured = false;
     }
 
     private void ValueChangeHandler(ChangeEventArgs<string, TickerDetailsDTO> args)
     {
         TickerValue = args.Value;
+        ErrorOccured = false;
+    }
 
+    private async Task WatchlistButtonClickHandler()
+    {
+        WatchlistVisible = !WatchlistVisible;
+        if(WatchlistVisible)
+        {
+            Watchlist = await Http.GetFromJsonAsync<TickerSimpleDTO[]>(WatchlistUrl);
+            }
     }
 
     private async Task SearchHandler()
@@ -154,20 +174,40 @@ using Syncfusion.Blazor.Data;
         string threeMonthsAgo = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddMonths(-3));
         string yesterdaysDateFormatted = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddDays(-1));
 
-        TickerDetails = await Http.GetFromJsonAsync<TickerSimpleDTO>($"Stocks/{TickerValue}");
-        if (TickerDetails != null && TickerDetails.Shortcode.Equals(TickerValue))
+        try
         {
-            DailyOpenClose = await Http.GetFromJsonAsync<DailyOpenCloseDTO>($"Stocks/{TickerValue}/{yesterdaysDateFormatted}");
-            TickerPrices = await Http.GetFromJsonAsync<TickerPricesDTO>($"Stocks/{TickerValue}/Prizes/{threeMonthsAgo}");
-            TickerNews = await Http.GetFromJsonAsync<TickerNewsDTO[]>($"Stocks/{TickerValue}/News/5");
+            TickerDetails = await Http.GetFromJsonAsync<TickerSimpleDTO>($"Stocks/{TickerValue}");
+            if (TickerDetails != null && TickerDetails.Shortcode.Equals(TickerValue))
+            {
+                DailyOpenClose = await Http.GetFromJsonAsync<DailyOpenCloseDTO>($"Stocks/{TickerValue}/{yesterdaysDateFormatted}");
+                TickerPrices = await Http.GetFromJsonAsync<TickerPricesDTO>($"Stocks/{TickerValue}/Prizes/{threeMonthsAgo}");
+                TickerNews = await Http.GetFromJsonAsync<TickerNewsDTO[]>($"Stocks/{TickerValue}/News/5");
+            }
         }
-
+        catch (Exception e)
+        {
+            ErrorOccured = true;
+        }
     }
 
+    private void CloseWatchlistHandler()
+    {
+        WatchlistVisible = false;
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var email = authState.User.Identity.Name;
+        var url = $"ApplicationUsers/{email}/Watchlist";
+        await Http.PostAsJsonAsync<TickerSimpleDTO>(Navigator.BaseUri + url, null);
+        WatchlistUrl = url;
+    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager Navigator { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
     }

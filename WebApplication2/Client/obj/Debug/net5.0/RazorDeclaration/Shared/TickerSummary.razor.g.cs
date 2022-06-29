@@ -111,14 +111,26 @@ using Syncfusion.Blazor.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 15 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\TickerSummary.razor"
+#line 19 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\TickerSummary.razor"
        
     [Parameter]
     public TickerSimpleDTO TickerDetails { get; set; }
 
+
+    private async Task AddTickerToWatchlistHandler()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var name = authState.User.Identity.Name;
+        var url = $"ApplicationUsers/{authState.User.Identity.Name}/{TickerDetails.Shortcode}";
+        await Http.PostAsJsonAsync<TickerSimpleDTO>(Navigator.BaseUri + url, null);
+    }
+
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager Navigator { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
     }
 }
 #pragma warning restore 1591

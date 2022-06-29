@@ -1,4 +1,7 @@
-﻿
+﻿@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject HttpClient Http
+@inject NavigationManager Navigator
+
 <div class="summary">
 
     <img class="ticker-logo" src="@TickerDetails.IconUrl" alt="Loading">
@@ -9,12 +12,22 @@
             <p>Market: @TickerDetails.Market</p>
         </div>
     </div>
-    <button class="add-to-fav">Add to watchlist</button>
+
+    <button @onclick="@AddTickerToWatchlistHandler" class="add-to-fav">Add to watchlist</button>
 </div>
 
 @code {
     [Parameter]
     public TickerSimpleDTO TickerDetails { get; set; }
+
+
+    private async Task AddTickerToWatchlistHandler()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var name = authState.User.Identity.Name;
+        var url = $"ApplicationUsers/{authState.User.Identity.Name}/{TickerDetails.Shortcode}";
+        await Http.PostAsJsonAsync<TickerSimpleDTO>(Navigator.BaseUri + url, null);
+    }
 }
 
 <style>
@@ -34,24 +47,23 @@
     }
 
     .informations {
-        display:flex;
-        flex-direction:column;
+        display: flex;
+        flex-direction: column;
     }
 
     .company-name {
         font-size: 1.5rem;
     }
 
-    .company-name p {
-        padding: 10px;
-        display: inline-block;
-    }
+        .company-name p {
+            padding: 10px;
+            display: inline-block;
+        }
 
     .add-to-fav {
         height: 2rem;
-        width:30%;
+        width: 40px;
         margin-top: 2rem;
         background-color: cornflowerblue;
     }
-
 </style>
