@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Server\\WebApplication2.Server.csproj": {}
+    "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Server\\WebApplication2.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Client\\WebApplication2.Client.csproj": {
+    "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Client\\WebApplication2.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Client\\WebApplication2.Client.csproj",
+        "projectUniqueName": "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Client\\WebApplication2.Client.csproj",
         "projectName": "WebApplication2.Client",
-        "projectPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Client\\WebApplication2.Client.csproj",
+        "projectPath": "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Client\\WebApplication2.Client.csproj",
         "packagesPath": "C:\\Users\\Mich\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Client\\obj\\",
+        "outputPath": "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mich\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj": {
-                "projectPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj"
+              "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Shared\\WebApplication2.Shared.csproj": {
+                "projectPath": "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Shared\\WebApplication2.Shared.csproj"
               }
             }
           }
@@ -69,11 +69,7 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
-            "Syncfusion.Blazor.Core": {
-              "target": "Package",
-              "version": "[20.1.0.61, )"
-            },
-            "Syncfusion.Blazor.DropDowns": {
+            "Syncfusion.Blazor": {
               "target": "Package",
               "version": "[20.1.0.61, )"
             },
@@ -82,10 +78,6 @@
               "version": "[20.1.0.61, )"
             },
             "Syncfusion.Xamarin.DataSource": {
-              "target": "Package",
-              "version": "[20.1.0.61, )"
-            },
-            "Syncfusion.Xamarin.SfAutoComplete": {
               "target": "Package",
               "version": "[20.1.0.61, )"
             },
@@ -124,14 +116,14 @@
         }
       }
     },
-    "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Server\\WebApplication2.Server.csproj": {
+    "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Server\\WebApplication2.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Server\\WebApplication2.Server.csproj",
+        "projectUniqueName": "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Server\\WebApplication2.Server.csproj",
         "projectName": "WebApplication2.Server",
-        "projectPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Server\\WebApplication2.Server.csproj",
+        "projectPath": "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Server\\WebApplication2.Server.csproj",
         "packagesPath": "C:\\Users\\Mich\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Server\\obj\\",
+        "outputPath": "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mich\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -148,11 +140,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Client\\WebApplication2.Client.csproj": {
-                "projectPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Client\\WebApplication2.Client.csproj"
+              "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Client\\WebApplication2.Client.csproj": {
+                "projectPath": "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Client\\WebApplication2.Client.csproj"
               },
-              "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj": {
-                "projectPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj"
+              "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Shared\\WebApplication2.Shared.csproj": {
+                "projectPath": "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Shared\\WebApplication2.Shared.csproj"
               }
             }
           }
@@ -203,11 +195,7 @@
               "target": "Package",
               "version": "[5.0.16, )"
             },
-            "Syncfusion.Blazor.Core": {
-              "target": "Package",
-              "version": "[20.1.0.61, )"
-            },
-            "Syncfusion.Blazor.DropDowns": {
+            "Syncfusion.Blazor": {
               "target": "Package",
               "version": "[20.1.0.61, )"
             },
@@ -216,10 +204,6 @@
               "version": "[20.1.0.61, )"
             },
             "Syncfusion.Xamarin.DataSource": {
-              "target": "Package",
-              "version": "[20.1.0.61, )"
-            },
-            "Syncfusion.Xamarin.SfAutoComplete": {
               "target": "Package",
               "version": "[20.1.0.61, )"
             }
@@ -246,14 +230,14 @@
         }
       }
     },
-    "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj": {
+    "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Shared\\WebApplication2.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Shared\\WebApplication2.Shared.csproj",
         "projectName": "WebApplication2.Shared",
-        "projectPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj",
+        "projectPath": "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Shared\\WebApplication2.Shared.csproj",
         "packagesPath": "C:\\Users\\Mich\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mich\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -290,11 +274,7 @@
               "target": "Package",
               "version": "[11.0.0, )"
             },
-            "Syncfusion.Blazor.Core": {
-              "target": "Package",
-              "version": "[20.1.0.61, )"
-            },
-            "Syncfusion.Blazor.DropDowns": {
+            "Syncfusion.Blazor": {
               "target": "Package",
               "version": "[20.1.0.61, )"
             },
@@ -303,10 +283,6 @@
               "version": "[20.1.0.61, )"
             },
             "Syncfusion.Xamarin.DataSource": {
-              "target": "Package",
-              "version": "[20.1.0.61, )"
-            },
-            "Syncfusion.Xamarin.SfAutoComplete": {
               "target": "Package",
               "version": "[20.1.0.61, )"
             }

@@ -1,16 +1,57 @@
-﻿<h3>TickerData</h3>
+﻿@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.Charts
 
-<TickerSummary TickerDetails="TickerDetails"/>
+<TickerSummary TickerDetails="TickerDetails" />
+<DailyOpenCloseData DailyOpenClose="DailyOpenClose" />
 
-
-
-
-
+<SfStockChart>
+    <StockChartSeriesCollection>
+        <StockChartSeries DataSource="@Results" Type="@ChartSeriesType.Candle"
+                          XName="Date"
+                          YName="Close"
+                          High="High"
+                          Low="Low"
+                          Open="Open"
+                          Close="Close"
+                          Volume="Volume"></StockChartSeries>
+    </StockChartSeriesCollection>
+    <StockChartPeriods>
+        <StockChartPeriod IntervalType=RangeIntervalType.Days Interval="1" Text='current day' Selected="true"></StockChartPeriod>
+        <StockChartPeriod IntervalType=RangeIntervalType.Weeks Interval="1" Text='1 week ago'></StockChartPeriod>
+        <StockChartPeriod IntervalType=RangeIntervalType.Months Interval="1" Text='1 month ago'></StockChartPeriod>
+        <StockChartPeriod IntervalType=RangeIntervalType.Months Interval="3" Text='3 months ago' ></StockChartPeriod>
+    </StockChartPeriods>
+</SfStockChart>
+<NewsList TickerNews="TickerNews" />
 
 
 
 
 @code {
+
+    public class StockChartData
+    {
+        public DateTime Date { get; set; }
+        public Double Open { get; set; }
+        public Double Low { get; set; }
+        public Double Close { get; set; }
+        public Double High { get; set; }
+        public Double Volume { get; set; }
+    }
+
+
+    protected override void OnParametersSet()
+    {
+        Results = TickerPrices.Results.Select(d => new StockChartData
+        {
+            Date = DateTimeOffset.FromUnixTimeMilliseconds(d.UnixMilisecondTimestamp).UtcDateTime,
+            Open = d.OpenPriceForTheSymbol,
+            Low = d.LowestPriceForTheSymbol,
+            Close = d.ClosePriceForTheSymbol,
+            High = d.HighestPriceForTheSymbol,
+            Volume = d.VolumeWeightedAveragePrice
+        });
+    }
 
     [Parameter]
     public TickerSimpleDTO TickerDetails { get; set; }
@@ -19,5 +60,7 @@
     [Parameter]
     public TickerPricesDTO TickerPrices { get; set; }
     [Parameter]
-    public TickerNewsDTO[] TickerNews { get; set; }
+    public IReadOnlyList<TickerNewsDTO> TickerNews { get; set; }
+
+    public IEnumerable<StockChartData> Results;
 }

@@ -16,14 +16,7 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)xamarin.forms\5.0.0.2012\buildTransitive\Xamarin.Forms.props" Condition="Exists('$(NuGetPackageRoot)xamarin.forms\5.0.0.2012\buildTransitive\Xamarin.Forms.props')" />
     <Import Project="$(NuGetPackageRoot)syncfusion.blazor.themes\20.1.0.61\buildTransitive\Syncfusion.Blazor.Themes.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.themes\20.1.0.61\buildTransitive\Syncfusion.Blazor.Themes.props')" />
-    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.core\20.1.0.61\buildTransitive\Syncfusion.Blazor.Core.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.core\20.1.0.61\buildTransitive\Syncfusion.Blazor.Core.props')" />
-    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.spinner\20.1.0.61\buildTransitive\Syncfusion.Blazor.Spinner.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.spinner\20.1.0.61\buildTransitive\Syncfusion.Blazor.Spinner.props')" />
-    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.popups\20.1.0.61\buildTransitive\Syncfusion.Blazor.Popups.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.popups\20.1.0.61\buildTransitive\Syncfusion.Blazor.Popups.props')" />
-    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.splitbuttons\20.1.0.61\buildTransitive\Syncfusion.Blazor.SplitButtons.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.splitbuttons\20.1.0.61\buildTransitive\Syncfusion.Blazor.SplitButtons.props')" />
-    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.data\20.1.0.61\buildTransitive\Syncfusion.Blazor.Data.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.data\20.1.0.61\buildTransitive\Syncfusion.Blazor.Data.props')" />
-    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.inputs\20.1.0.61\buildTransitive\Syncfusion.Blazor.Inputs.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.inputs\20.1.0.61\buildTransitive\Syncfusion.Blazor.Inputs.props')" />
-    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.dropdowns\20.1.0.61\buildTransitive\Syncfusion.Blazor.DropDowns.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.dropdowns\20.1.0.61\buildTransitive\Syncfusion.Blazor.DropDowns.props')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.blazor\20.1.0.61\buildTransitive\Syncfusion.Blazor.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor\20.1.0.61\buildTransitive\Syncfusion.Blazor.props')" />
   </ImportGroup>
 </Project>

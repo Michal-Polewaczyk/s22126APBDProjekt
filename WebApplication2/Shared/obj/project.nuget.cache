@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TIS38Jiuz2sYZT0opmuofb65WtOuwVZ3M0RzGpp03LMx/jBooBhvYCW2IjdO8PbWmx4TSWazJNh1IJNhiK0c0w==",
+  "dgSpecHash": "SgVjhparR/gMgnDPcCc2INCwsM/ECazzaO7rMvU9IsYhKcNscKCwCTWdaaDbnQ1t/tPsri94d4PfJ5EzYREVFA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mich\\source\\repos\\WebApplication2\\WebApplication2\\Shared\\WebApplication2.Shared.csproj",
+  "projectFilePath": "C:\\Users\\Mich\\Desktop\\saveapbd\\s22126APBDProjekt\\WebApplication2\\Shared\\WebApplication2.Shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mich\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Mich\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
@@ -19,24 +19,19 @@
     "C:\\Users\\Mich\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\Mich\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\Mich\\.nuget\\packages\\microsoft.jsinterop\\5.0.0\\microsoft.jsinterop.5.0.0.nupkg.sha512",
-    "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.blazor.buttons\\20.1.0.61\\syncfusion.blazor.buttons.20.1.0.61.nupkg.sha512",
-    "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.blazor.core\\20.1.0.61\\syncfusion.blazor.core.20.1.0.61.nupkg.sha512",
-    "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.blazor.data\\20.1.0.61\\syncfusion.blazor.data.20.1.0.61.nupkg.sha512",
-    "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.blazor.dropdowns\\20.1.0.61\\syncfusion.blazor.dropdowns.20.1.0.61.nupkg.sha512",
-    "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.blazor.inputs\\20.1.0.61\\syncfusion.blazor.inputs.20.1.0.61.nupkg.sha512",
-    "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.blazor.popups\\20.1.0.61\\syncfusion.blazor.popups.20.1.0.61.nupkg.sha512",
-    "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.blazor.spinner\\20.1.0.61\\syncfusion.blazor.spinner.20.1.0.61.nupkg.sha512",
-    "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.blazor.splitbuttons\\20.1.0.61\\syncfusion.blazor.splitbuttons.20.1.0.61.nupkg.sha512",
+    "C:\\Users\\Mich\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Mich\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\Mich\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.blazor\\20.1.0.61\\syncfusion.blazor.20.1.0.61.nupkg.sha512",
     "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.blazor.themes\\20.1.0.61\\syncfusion.blazor.themes.20.1.0.61.nupkg.sha512",
+    "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.excelexport.net.core\\20.1.0.61\\syncfusion.excelexport.net.core.20.1.0.61.nupkg.sha512",
     "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.licensing\\20.1.0.61\\syncfusion.licensing.20.1.0.61.nupkg.sha512",
-    "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.xamarin.core\\20.1.0.61\\syncfusion.xamarin.core.20.1.0.61.nupkg.sha512",
+    "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.pdfexport.net.core\\20.1.0.61\\syncfusion.pdfexport.net.core.20.1.0.61.nupkg.sha512",
     "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.xamarin.datasource\\20.1.0.61\\syncfusion.xamarin.datasource.20.1.0.61.nupkg.sha512",
-    "C:\\Users\\Mich\\.nuget\\packages\\syncfusion.xamarin.sfautocomplete\\20.1.0.61\\syncfusion.xamarin.sfautocomplete.20.1.0.61.nupkg.sha512",
     "C:\\Users\\Mich\\.nuget\\packages\\system.io.pipelines\\5.0.0\\system.io.pipelines.5.0.0.nupkg.sha512",
     "C:\\Users\\Mich\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\Mich\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
-    "C:\\Users\\Mich\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
-    "C:\\Users\\Mich\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+    "C:\\Users\\Mich\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

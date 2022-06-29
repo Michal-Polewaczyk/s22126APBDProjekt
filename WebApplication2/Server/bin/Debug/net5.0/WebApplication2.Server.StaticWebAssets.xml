@@ -1,14 +1,9 @@
 ﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="/" Path="C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\bin\Debug\net5.0\wwwroot\" />
-  <ContentRoot BasePath="/" Path="C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\wwwroot\" />
+  <ContentRoot BasePath="/" Path="C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\bin\Debug\net5.0\wwwroot\" />
+  <ContentRoot BasePath="/" Path="C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\obj\Debug\net5.0\scopedcss\bundle\" />
+  <ContentRoot BasePath="/" Path="C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\wwwroot\" />
   <ContentRoot BasePath="/Identity" Path="C:\Users\Mich\.nuget\packages\microsoft.aspnetcore.identity.ui\5.0.16\staticwebassets\V4\" />
   <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="C:\Users\Mich\.nuget\packages\microsoft.aspnetcore.components.webassembly.authentication\5.0.16\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Syncfusion.Blazor.Core" Path="C:\Users\Mich\.nuget\packages\syncfusion.blazor.core\20.1.0.61\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Syncfusion.Blazor.Data" Path="C:\Users\Mich\.nuget\packages\syncfusion.blazor.data\20.1.0.61\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Syncfusion.Blazor.DropDowns" Path="C:\Users\Mich\.nuget\packages\syncfusion.blazor.dropdowns\20.1.0.61\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Syncfusion.Blazor.Inputs" Path="C:\Users\Mich\.nuget\packages\syncfusion.blazor.inputs\20.1.0.61\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Syncfusion.Blazor.Popups" Path="C:\Users\Mich\.nuget\packages\syncfusion.blazor.popups\20.1.0.61\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Syncfusion.Blazor.Spinner" Path="C:\Users\Mich\.nuget\packages\syncfusion.blazor.spinner\20.1.0.61\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Syncfusion.Blazor.SplitButtons" Path="C:\Users\Mich\.nuget\packages\syncfusion.blazor.splitbuttons\20.1.0.61\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Syncfusion.Blazor" Path="C:\Users\Mich\.nuget\packages\syncfusion.blazor\20.1.0.61\build\..\staticwebassets\" />
   <ContentRoot BasePath="_content/Syncfusion.Blazor.Themes" Path="C:\Users\Mich\.nuget\packages\syncfusion.blazor.themes\20.1.0.61\build\..\staticwebassets\" />
 </StaticWebAssets>

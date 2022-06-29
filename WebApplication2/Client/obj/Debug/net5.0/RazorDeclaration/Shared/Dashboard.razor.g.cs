@@ -13,106 +13,99 @@ namespace WebApplication2.Client.Shared
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\_Imports.razor"
+#line 1 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\_Imports.razor"
+#line 2 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\_Imports.razor"
-using Microsoft.AspNetCore.Components.Forms;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\_Imports.razor"
-using Microsoft.AspNetCore.Components.Routing;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 6 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\_Imports.razor"
-using Microsoft.AspNetCore.Components.Web;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 7 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\_Imports.razor"
-using Microsoft.AspNetCore.Components.Web.Virtualization;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 8 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\_Imports.razor"
-using Microsoft.AspNetCore.Components.WebAssembly.Http;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 9 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\_Imports.razor"
-using Microsoft.JSInterop;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 10 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\_Imports.razor"
-using WebApplication2.Client;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 11 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\_Imports.razor"
-using WebApplication2.Client.Shared;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 12 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\_Imports.razor"
-using Syncfusion.Blazor;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 2 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\Shared\Dashboard.razor"
-using Syncfusion.Blazor.DropDowns;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\Shared\Dashboard.razor"
-using Syncfusion.Blazor.Data;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 4 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\Shared\Dashboard.razor"
+#line 3 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\Shared\Dashboard.razor"
-using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
+#line 4 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
+using Microsoft.AspNetCore.Components.Forms;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
+using Microsoft.AspNetCore.Components.Routing;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
+using Microsoft.AspNetCore.Components.Web;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
+using Microsoft.AspNetCore.Components.Web.Virtualization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
+using Microsoft.AspNetCore.Components.WebAssembly.Http;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
+using Microsoft.JSInterop;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
+using WebApplication2.Client;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
+using WebApplication2.Client.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
+using Syncfusion.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\Dashboard.razor"
+using Syncfusion.Blazor.DropDowns;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\Dashboard.razor"
+using Syncfusion.Blazor.Data;
 
 #line default
 #line hidden
@@ -125,7 +118,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "C:\Users\Mich\source\repos\WebApplication2\WebApplication2\Client\Shared\Dashboard.razor"
+#line 40 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\Dashboard.razor"
        
     private string TickerValue { get; set; } = "";
 
@@ -156,22 +149,16 @@ using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 
     }
 
-    private async Task BeginSignOut(MouseEventArgs args)
-    {
-        await SignOutManager.SetSignOutState();
-        Navigator.NavigateTo("authentication/logout");
-    }
-
     private async Task SearchHandler()
     {
-        string todaysDateFormatted = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now);
+        string threeMonthsAgo = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddMonths(-3));
         string yesterdaysDateFormatted = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddDays(-1));
 
         TickerDetails = await Http.GetFromJsonAsync<TickerSimpleDTO>($"Stocks/{TickerValue}");
-        if(TickerDetails != null && TickerDetails.Shortcode.Equals(TickerValue))
+        if (TickerDetails != null && TickerDetails.Shortcode.Equals(TickerValue))
         {
             DailyOpenClose = await Http.GetFromJsonAsync<DailyOpenCloseDTO>($"Stocks/{TickerValue}/{yesterdaysDateFormatted}");
-            TickerPrices = await Http.GetFromJsonAsync<TickerPricesDTO>($"Stocks/{TickerValue}/Prizes/{todaysDateFormatted}");
+            TickerPrices = await Http.GetFromJsonAsync<TickerPricesDTO>($"Stocks/{TickerValue}/Prizes/{threeMonthsAgo}");
             TickerNews = await Http.GetFromJsonAsync<TickerNewsDTO[]>($"Stocks/{TickerValue}/News/5");
         }
 
@@ -181,7 +168,6 @@ using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private SignOutSessionStateManager SignOutManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager Navigator { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
     }

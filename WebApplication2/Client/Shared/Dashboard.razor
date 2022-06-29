@@ -1,29 +1,12 @@
 ﻿@inject HttpClient Http
 @using Syncfusion.Blazor.DropDowns
 @using Syncfusion.Blazor.Data
-@using Microsoft.AspNetCore.Components.Authorization
-@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @inject NavigationManager Navigator
-@inject SignOutSessionStateManager SignOutManager
 
-<AuthorizeView>
-    <Authorized>
-        <div class="logged-user">
-            <a href="authentication/profile">Hello, @context.User.Identity.Name!</a>
-        </div>
-        
-    </Authorized>
-    <NotAuthorized>
-        <a href="authentication/register">Register</a>
-        <a href="authentication/login">Log in</a>
-    </NotAuthorized>
-</AuthorizeView>
 <div class="dashboard-wrapper-div">
     <div class="upper-panel">
         <h1>Dashboard</h1>
-        <button @onclick="BeginSignOut">LOGOUT</button>
     </div>
-
     <div class="searcher-tab">
 
         <div class="searcher-tab__autocomplete">
@@ -45,14 +28,13 @@
     </div>
     @if (TickerDetails == null || TickerPrices == null || DailyOpenClose == null)
     {
-        
+
         <p>Loading data</p>
     }
     else
     {
         <TickerData TickerDetails="TickerDetails" TickerNews="TickerNews" TickerPrices="TickerPrices" DailyOpenClose="DailyOpenClose" />
     }
-
 </div>
 
 @code {
@@ -85,22 +67,16 @@
 
     }
 
-    private async Task BeginSignOut(MouseEventArgs args)
-    {
-        await SignOutManager.SetSignOutState();
-        Navigator.NavigateTo("authentication/logout");
-    }
-
     private async Task SearchHandler()
     {
-        string todaysDateFormatted = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now);
+        string threeMonthsAgo = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddMonths(-3));
         string yesterdaysDateFormatted = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddDays(-1));
 
         TickerDetails = await Http.GetFromJsonAsync<TickerSimpleDTO>($"Stocks/{TickerValue}");
-        if(TickerDetails != null && TickerDetails.Shortcode.Equals(TickerValue))
+        if (TickerDetails != null && TickerDetails.Shortcode.Equals(TickerValue))
         {
             DailyOpenClose = await Http.GetFromJsonAsync<DailyOpenCloseDTO>($"Stocks/{TickerValue}/{yesterdaysDateFormatted}");
-            TickerPrices = await Http.GetFromJsonAsync<TickerPricesDTO>($"Stocks/{TickerValue}/Prizes/{todaysDateFormatted}");
+            TickerPrices = await Http.GetFromJsonAsync<TickerPricesDTO>($"Stocks/{TickerValue}/Prizes/{threeMonthsAgo}");
             TickerNews = await Http.GetFromJsonAsync<TickerNewsDTO[]>($"Stocks/{TickerValue}/News/5");
         }
 
@@ -167,5 +143,4 @@
         right: 15px;
         position: absolute;
     }
-
 </style>

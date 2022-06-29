@@ -69,10 +69,12 @@ public class StockApiPolygonImpl : IStockApiService
                 string responseToString = await response.Content.ReadAsStringAsync();
                 DailyOpenCloseDTO dailyOpenCloseDto = JsonSerializer.Deserialize<DailyOpenCloseDTO>(responseToString);
                 
+                
         if(!response.StatusCode.Equals(HttpStatusCode.OK))
         {
             DailyOpenClose dailyOpenClose = await _dbService.GetDailyOpenClose(tickerName, date);
             dailyOpenCloseDto = _mapper.Map<DailyOpenClose,DailyOpenCloseDTO>(dailyOpenClose);
+            return dailyOpenCloseDto;
         }
         await _dbService.AddDailyOpenClose(_mapper.Map<DailyOpenCloseDTO, DailyOpenClose>(dailyOpenCloseDto),tickerName);
         return dailyOpenCloseDto;
@@ -92,7 +94,8 @@ public class StockApiPolygonImpl : IStockApiService
         if (!response.StatusCode.Equals(HttpStatusCode.OK))
         {
             IEnumerable<News> news = await _dbService.GetLatestNewsAboutTicker(tickerName, numberOfLatestNews);
-            tickerNewsDtos = news.Select(n => _mapper.Map<News, TickerNewsDTO>(n)); 
+            tickerNewsDtos = news.Select(n => _mapper.Map<News, TickerNewsDTO>(n));
+            return tickerNewsDtos;
         }
         tickerNewsDtos.Select(t => _dbService.AddLatestNewsAboutTicker(_mapper.Map<TickerNewsDTO, News>(t),tickerName));
         return tickerNewsDtos;
