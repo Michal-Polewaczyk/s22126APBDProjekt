@@ -27,13 +27,6 @@ using System.Net.Http.Json;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
-using Microsoft.AspNetCore.Components.Authorization;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 4 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
@@ -99,6 +92,20 @@ using Syncfusion.Blazor;
 #nullable restore
 #line 13 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\_Imports.razor"
 using Syncfusion.Blazor.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\MainLayout.razor"
+using Microsoft.AspNetCore.Components.Authorization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\MainLayout.razor"
+using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 
 #line default
 #line hidden

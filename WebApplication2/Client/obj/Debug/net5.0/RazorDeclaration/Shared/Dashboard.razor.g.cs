@@ -125,7 +125,7 @@ using Syncfusion.Blazor.Grids;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 89 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\Dashboard.razor"
+#line 93 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\Dashboard.razor"
        
     private string TickerValue { get; set; } = "";
     private bool WatchlistVisible { get; set; } = false;

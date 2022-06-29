@@ -6,12 +6,16 @@
 
 <AuthorizeView>
     <Authorized>
-        <a href="authentication/profile">Hello, @context.User.Identity.Name!</a>
-        <button class="nav-link btn btn-link" @onclick="BeginSignOut">Log out</button>
+        <div>
+            <span href="authentication/profile">Logged as @context.User.Identity.Name!</span>
+            <button class="option-button" @onclick="BeginSignOut" >Log out</button>
+        </div>
     </Authorized>
     <NotAuthorized>
-        <a href="authentication/register">Register</a>
-        <a href="authentication/login">Log in</a>
+        <div>
+            <a href="authentication/register"><button class="option-button">Register</button></a>
+            <a href="authentication/login"><button class="option-button">Log in</button></a>
+        </div>
     </NotAuthorized>
 </AuthorizeView>
 
@@ -22,3 +26,15 @@
         Navigation.NavigateTo("authentication/logout");
     }
 }
+
+<style>
+
+    .option-button {
+        width: 15%;
+        border-radius: 7px;
+        background-color: cornflowerblue;
+        margin: 10px;
+    }
+    
+
+</style>

@@ -12,8 +12,6 @@
 
     @if (!WatchlistVisible)
     {
-
-
         <div class="searcher-tab">
             <div class="searcher-tab__autocomplete">
                 <label>Company symbol</label>
@@ -40,7 +38,7 @@
         @if (TickerDetails == null || TickerPrices == null || DailyOpenClose == null || TickerNews == null)
         {
 
-            <p>Loading data</p>
+            <p> No data to load yet</p>
         }
         else
         {
@@ -51,6 +49,7 @@
     {
         <button @onclick="@CloseWatchlistHandler">Close Watchlist</button>
         <SfGrid TValue="TickerSimpleDTO" DataSource="@Watchlist"  AllowSorting="true" AllowPaging="true">
+            <GridEditSettings AllowDeleting="true"></GridEditSettings>
             <GridPageSettings PageSize="5"></GridPageSettings>
             <GridColumns>
                 <GridColumn TextAlign="TextAlign.Center"
@@ -58,7 +57,7 @@
                     <Template>
                         @{ 
                             var ticker = (context as TickerSimpleDTO);
-                            <img class="ticker-logo-watchlist" src="@ticker.IconUrl" alt="Loading">
+                            <img class="ticker-logo-watchlist" src="@ticker.IconUrl" alt="No logo image provided">
                         }
                        
                     </Template>
@@ -78,6 +77,11 @@
                 <GridColumn Field=@nameof(TickerSimpleDTO.CountryCode)
                             TextAlign="TextAlign.Center"
                             HeaderText="Country Code">
+                </GridColumn>
+                <GridColumn>
+                    <Template>    
+                            <button class="delete-row-button" >DELETE</button>
+                    </Template>
                 </GridColumn>
             </GridColumns>
         </SfGrid>
@@ -190,12 +194,18 @@
         color: cornflowerblue;
     }
 
+    .delete-row-button {
+        background-color: red;
+        border-radius: 7px;
+
+    }
+
     .dashboard-wrapper-div button {
         background-color: cornflowerblue;
         color: white;
         border: none;
-        width: 7%;
-        border-radius: 3px;
+        width: 15%;
+        border-radius: 5px;
         font: bolder;
     }
 

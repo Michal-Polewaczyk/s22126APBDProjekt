@@ -1,14 +1,35 @@
 ﻿@inherits LayoutComponentBase
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 
 <div class="page">
     <div>
-        
-            <LoginDisplay />
-            <Dashboard />
-        
+        <LoginDisplay />
+        <AuthorizeView>
+            <NotAuthorized>
+                <div class="not-logged-in">
+                    <h1>Please log in to access this application's features'</h1>
+                </div>
+            </NotAuthorized>
+            <Authorized>
+                <Dashboard />
+            </Authorized>
+        </AuthorizeView>
+
 
         <div class="content px-4">
             @Body
         </div>
     </div>
 </div>
+
+ <style>
+     .not-logged-in {
+         border: 2rem solid;
+         background-color: #f85454;
+         width: 50%;
+         border-radius: 10px;
+         border-color: red;
+         color: red;
+     }
+ </style>
