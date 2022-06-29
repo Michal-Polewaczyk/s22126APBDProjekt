@@ -50,7 +50,7 @@
     else
     {
         <button @onclick="@CloseWatchlistHandler">Close Watchlist</button>
-        <SfGrid TValue="TickerSimpleDTO" DataSource="@Watchlist" AllowPaging="true">
+        <SfGrid TValue="TickerSimpleDTO" DataSource="@Watchlist"  AllowSorting="true" AllowPaging="true">
             <GridPageSettings PageSize="5"></GridPageSettings>
             <GridColumns>
                 <GridColumn TextAlign="TextAlign.Center"
