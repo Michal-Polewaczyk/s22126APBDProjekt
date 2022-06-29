@@ -18,7 +18,7 @@
 
                 @if (ErrorOccured)
                 {
-                    <p class="not-found">Ticker not found!</p>
+                    <div class="not-found">Ticker not found!</div>
                 }
                 <SfAutoComplete TValue="string" TItem="TickerDetailsDTO" Query="@Query" PopupHeight="auto" PopupWidth="700px" @oninput="InputChangeHandler">
                     <AutoCompleteEvents TValue="string" TItem="TickerDetailsDTO" ValueChange="ValueChangeHandler"></AutoCompleteEvents>
@@ -181,6 +181,10 @@
     }
 
     .not-found {
+        border: 0.2rem solid;
+        background-color: #f85454;
+        border-radius: 10px;
+        border-color: red;
         color: red;
     }
 
