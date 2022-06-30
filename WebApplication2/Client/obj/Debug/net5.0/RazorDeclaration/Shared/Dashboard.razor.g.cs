@@ -125,8 +125,9 @@ using Syncfusion.Blazor.Grids;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 93 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\Dashboard.razor"
+#line 90 "C:\Users\Mich\Desktop\saveapbd\s22126APBDProjekt\WebApplication2\Client\Shared\Dashboard.razor"
        
+    SfGrid<TickerSimpleDTO> TickersGrid;
     private string TickerValue { get; set; } = "";
     private bool WatchlistVisible { get; set; } = false;
     private bool ErrorOccured { get; set; } = false;
@@ -136,11 +137,22 @@ using Syncfusion.Blazor.Grids;
     private DailyOpenCloseDTO DailyOpenClose;
     private TickerPricesDTO TickerPrices;
     private TickerNewsDTO[] TickerNews;
-    private TickerSimpleDTO[] Watchlist;
+    private List<TickerSimpleDTO> Watchlist;
     private CommonDateNotationConverter _converter = new CommonDateNotationConverter();
 
-    public Query Query = new Query(); // new Query().Where("match", "equal", TickerValue).RequiresCount();
+    public Query Query = new Query();
 
+
+    private async Task OnDeleteRowHandler()
+    {
+        var records = await TickersGrid.GetCurrentViewRecordsAsync();
+        TickerSimpleDTO selectedItem = (await TickersGrid.GetSelectedRecordsAsync()).First();
+        string selectedItemsShortcode = selectedItem.Shortcode;
+        Watchlist.Remove(selectedItem);
+
+        await Http.DeleteAsync(WatchlistUrl + $"/{selectedItem.Shortcode}");
+
+    }
 
     private string GetUrlToSendRequestTo()
     {
@@ -165,14 +177,14 @@ using Syncfusion.Blazor.Grids;
         WatchlistVisible = !WatchlistVisible;
         if(WatchlistVisible)
         {
-            Watchlist = await Http.GetFromJsonAsync<TickerSimpleDTO[]>(WatchlistUrl);
-            }
+            Watchlist = await Http.GetFromJsonAsync<List<TickerSimpleDTO>>(WatchlistUrl);
+        }
     }
 
     private async Task SearchHandler()
     {
         string threeMonthsAgo = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddMonths(-3));
-        string yesterdaysDateFormatted = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddDays(-1));
+        string yesterdaysDateFormatted = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddDays(-2));
 
         try
         {

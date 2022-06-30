@@ -47,8 +47,10 @@
     }
     else
     {
+
         <button @onclick="@CloseWatchlistHandler">Close Watchlist</button>
-        <SfGrid TValue="TickerSimpleDTO" DataSource="@Watchlist"  AllowSorting="true" AllowPaging="true">
+        <button class="not-found" @onclick="OnDeleteRowHandler">Delete selected row</button>
+        <SfGrid TValue="TickerSimpleDTO" DataSource="@Watchlist"  AllowSorting="true" AllowPaging="true" @ref="TickersGrid">
             <GridEditSettings AllowDeleting="true"></GridEditSettings>
             <GridPageSettings PageSize="5"></GridPageSettings>
             <GridColumns>
@@ -68,7 +70,7 @@
                 </GridColumn>
                 <GridColumn Field=@nameof(TickerSimpleDTO.Shortcode)
                             TextAlign="TextAlign.Center"
-                            HeaderText="Short code">
+                            HeaderText="Shortcode">
                 </GridColumn>
                 <GridColumn Field=@nameof(TickerSimpleDTO.Market)
                             TextAlign="TextAlign.Center"
@@ -78,11 +80,6 @@
                             TextAlign="TextAlign.Center"
                             HeaderText="Country Code">
                 </GridColumn>
-                <GridColumn>
-                    <Template>    
-                            <button class="delete-row-button" >DELETE</button>
-                    </Template>
-                </GridColumn>
             </GridColumns>
         </SfGrid>
     }
@@ -91,6 +88,7 @@
 </div>
 
 @code {
+    SfGrid<TickerSimpleDTO> TickersGrid;
     private string TickerValue { get; set; } = "";
     private bool WatchlistVisible { get; set; } = false;
     private bool ErrorOccured { get; set; } = false;
@@ -100,11 +98,22 @@
     private DailyOpenCloseDTO DailyOpenClose;
     private TickerPricesDTO TickerPrices;
     private TickerNewsDTO[] TickerNews;
-    private TickerSimpleDTO[] Watchlist;
+    private List<TickerSimpleDTO> Watchlist;
     private CommonDateNotationConverter _converter = new CommonDateNotationConverter();
 
-    public Query Query = new Query(); // new Query().Where("match", "equal", TickerValue).RequiresCount();
+    public Query Query = new Query();
 
+
+    private async Task OnDeleteRowHandler()
+    {
+        var records = await TickersGrid.GetCurrentViewRecordsAsync();
+        TickerSimpleDTO selectedItem = (await TickersGrid.GetSelectedRecordsAsync()).First();
+        string selectedItemsShortcode = selectedItem.Shortcode;
+        Watchlist.Remove(selectedItem);
+
+        await Http.DeleteAsync(WatchlistUrl + $"/{selectedItem.Shortcode}");
+
+    }
 
     private string GetUrlToSendRequestTo()
     {
@@ -129,14 +138,14 @@
         WatchlistVisible = !WatchlistVisible;
         if(WatchlistVisible)
         {
-            Watchlist = await Http.GetFromJsonAsync<TickerSimpleDTO[]>(WatchlistUrl);
-            }
+            Watchlist = await Http.GetFromJsonAsync<List<TickerSimpleDTO>>(WatchlistUrl);
+        }
     }
 
     private async Task SearchHandler()
     {
         string threeMonthsAgo = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddMonths(-3));
-        string yesterdaysDateFormatted = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddDays(-1));
+        string yesterdaysDateFormatted = _converter.FormatDateTimeToApiFriendlyFormat(DateTime.Now.AddDays(-2));
 
         try
         {
@@ -198,10 +207,10 @@
         color: cornflowerblue;
     }
 
-    .delete-row-button {
+    .delete-button {
         background-color: red;
         border-radius: 7px;
-
+        width: 60%;
     }
 
     .dashboard-wrapper-div button {

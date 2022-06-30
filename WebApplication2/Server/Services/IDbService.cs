@@ -17,6 +17,7 @@ public interface IDbService
     public Task<IEnumerable<TickerDetailsDTO>> GetAllTickersMatchingToString(string matcher);
     public Task<bool> AddTickerToUserWatchlist(string UserEmail, string TickerName);
     public Task<IEnumerable<TickerSimpleDTO>> GetTickersFromUsersWatchlist(string UserEmail);
+    public Task DeleteDeleteFromWatchlist(string UserEmail, string TickerName);
 
 }
 

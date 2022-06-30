@@ -67,6 +67,22 @@ public class SqlServerDbImpl : IDbService
         }
     }
 
+    public async Task DeleteDeleteFromWatchlist(string UserEmail, string TickerName)
+    {
+        ApplicationUser user = await _context.Users.Where(u => u.Email.Equals(UserEmail)).SingleAsync();
+        Ticker ticker = await _context.Tickers.Where(t => t.ShortCode.Equals(TickerName)).FirstAsync();
+
+        ApplicationUserTicker userTicker = new ApplicationUserTicker
+        {
+            IdApplicationUser = user.Id,
+            IdTicker = ticker.IdTicker
+        };
+
+        _context.ApplicationUserTickers.Attach(userTicker);
+        _context.ApplicationUserTickers.Remove(userTicker);
+        await _context.SaveChangesAsync();
+    }
+
     public async Task<IEnumerable<TickerDetailsDTO>> GetAllTickersMatchingToString(string matcher)
     {
         IEnumerable<TickerDetailsDTO> matchingRecords = await _context.Tickers.Where(t => t.Name.Contains(matcher) || t.ShortCode.Contains(matcher)).Select(t => _mapper.Map<Ticker,TickerDetailsDTO>(t)).ToListAsync();
